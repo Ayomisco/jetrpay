@@ -119,22 +119,22 @@ const paymentLinks = [
 
 export default function DashboardPage() {
   return (
-    <div className="min-h-screen bg-muted/30">
+    <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/40">
       <Header />
 
-      <main className="container mx-auto px-4 py-8">
+      <main className="container mx-auto px-4 py-12">
         {/* Header */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-10">
           <div>
-            <h1 className="font-heading font-bold text-3xl">Dashboard</h1>
-            <p className="text-muted-foreground">Welcome back! Here's what's happening with your business.</p>
+            <h1 className="font-heading font-bold text-4xl md:text-5xl gradient-text">Dashboard</h1>
+            <p className="text-muted-foreground text-lg mt-2">Welcome back! Here's what's happening with your business.</p>
           </div>
           <div className="flex gap-3">
-            <Button variant="outline" size="sm">
+            <Button variant="outline" size="sm" className="glass-effect hover:scale-105 transition-transform">
               <Download className="h-4 w-4 mr-2" />
               Export
             </Button>
-            <Button size="sm" asChild>
+            <Button size="sm" asChild className="glass-effect bg-gradient-to-r from-primary to-secondary text-primary-foreground hover:scale-105 transition-transform">
               <Link href="/dashboard/payment-links/new">
                 <Plus className="h-4 w-4 mr-2" />
                 Create Link
@@ -144,17 +144,18 @@ export default function DashboardPage() {
         </div>
 
         {/* Stats Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {stats.map((stat, index) => (
-            <Card key={index} className="border-0 shadow-sm">
-              <CardContent className="p-6">
+            <Card key={index} className="glass-effect border-0 shadow-xl hover:scale-[1.025] hover:shadow-2xl transition-all duration-300 group relative overflow-hidden">
+              <div className="absolute -top-8 -right-8 w-20 h-20 bg-gradient-to-br from-primary/20 to-secondary/10 rounded-full blur-2xl opacity-30 group-hover:opacity-50 transition-opacity duration-300" />
+              <CardContent className="p-8">
                 <div className="flex items-center justify-between">
                   <div className="space-y-2">
                     <p className="text-sm text-muted-foreground">{stat.title}</p>
-                    <p className="font-heading font-bold text-2xl">{stat.value}</p>
+                    <p className="font-heading font-bold text-2xl md:text-3xl">{stat.value}</p>
                   </div>
-                  <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center">
-                    <stat.icon className="h-6 w-6 text-primary" />
+                  <div className="h-14 w-14 rounded-xl bg-primary/10 flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-300">
+                    <stat.icon className="h-7 w-7 text-primary animate-bounce-on-hover" />
                   </div>
                 </div>
                 <div className="flex items-center gap-2 mt-4">
@@ -176,21 +177,21 @@ export default function DashboardPage() {
         </div>
 
         {/* Main Content */}
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid lg:grid-cols-3 gap-10">
           {/* Transactions */}
           <div className="lg:col-span-2">
-            <Card className="border-0 shadow-sm">
+            <Card className="glass-effect border-0 shadow-xl">
               <CardHeader className="flex flex-row items-center justify-between">
-                <CardTitle className="font-heading text-xl">Recent Transactions</CardTitle>
-                <Button variant="ghost" size="sm" asChild>
+                <CardTitle className="font-heading text-2xl">Recent Transactions</CardTitle>
+                <Button variant="ghost" size="sm" asChild className="hover:underline">
                   <Link href="/dashboard/transactions">View All</Link>
                 </Button>
               </CardHeader>
               <CardContent className="space-y-4">
                 {recentTransactions.map((transaction, index) => (
-                  <div key={index} className="flex items-center justify-between p-4 bg-muted/50 rounded-lg">
+                  <div key={index} className="flex items-center justify-between p-4 bg-muted/60 rounded-xl group hover:bg-primary/10 transition-colors">
                     <div className="space-y-1">
-                      <p className="font-medium">{transaction.customer}</p>
+                      <p className="font-medium text-lg group-hover:text-primary transition-colors">{transaction.customer}</p>
                       <div className="flex items-center gap-2">
                         <Badge
                           variant={
@@ -208,7 +209,7 @@ export default function DashboardPage() {
                       </div>
                     </div>
                     <div className="text-right">
-                      <p className="font-medium">{transaction.amount}</p>
+                      <p className="font-medium text-lg">{transaction.amount}</p>
                       <p className="text-sm text-muted-foreground">{transaction.date}</p>
                     </div>
                   </div>
@@ -219,18 +220,18 @@ export default function DashboardPage() {
 
           {/* Payment Links */}
           <div>
-            <Card className="border-0 shadow-sm">
+            <Card className="glass-effect border-0 shadow-xl">
               <CardHeader className="flex flex-row items-center justify-between">
-                <CardTitle className="font-heading text-xl">Payment Links</CardTitle>
-                <Button variant="ghost" size="sm" asChild>
+                <CardTitle className="font-heading text-2xl">Payment Links</CardTitle>
+                <Button variant="ghost" size="sm" asChild className="hover:underline">
                   <Link href="/dashboard/payment-links">Manage</Link>
                 </Button>
               </CardHeader>
               <CardContent className="space-y-4">
                 {paymentLinks.map((link, index) => (
-                  <div key={index} className="p-4 bg-muted/50 rounded-lg space-y-3">
+                  <div key={index} className="p-4 bg-muted/60 rounded-xl space-y-3 group hover:bg-primary/10 transition-colors">
                     <div className="flex items-center justify-between">
-                      <h4 className="font-medium">{link.title}</h4>
+                      <h4 className="font-medium text-lg group-hover:text-primary transition-colors">{link.title}</h4>
                       <Badge variant={link.status === "active" ? "default" : "secondary"} className="text-xs">
                         {link.status}
                       </Badge>
@@ -259,10 +260,10 @@ export default function DashboardPage() {
         </div>
 
         {/* Analytics Section */}
-        <div className="mt-8">
-          <Card className="border-0 shadow-sm">
+        <div className="mt-12">
+          <Card className="glass-effect border-0 shadow-xl">
             <CardHeader>
-              <CardTitle className="font-heading text-xl">Analytics Overview</CardTitle>
+              <CardTitle className="font-heading text-2xl">Analytics Overview</CardTitle>
             </CardHeader>
             <CardContent>
               <Tabs defaultValue="revenue" className="w-full">
@@ -272,17 +273,17 @@ export default function DashboardPage() {
                   <TabsTrigger value="customers">Customers</TabsTrigger>
                 </TabsList>
                 <TabsContent value="revenue" className="mt-6">
-                  <div className="h-64 bg-muted/50 rounded-lg flex items-center justify-center">
+                  <div className="h-64 bg-muted/60 rounded-xl flex items-center justify-center">
                     <p className="text-muted-foreground">Revenue chart would be displayed here</p>
                   </div>
                 </TabsContent>
                 <TabsContent value="transactions" className="mt-6">
-                  <div className="h-64 bg-muted/50 rounded-lg flex items-center justify-center">
+                  <div className="h-64 bg-muted/60 rounded-xl flex items-center justify-center">
                     <p className="text-muted-foreground">Transaction chart would be displayed here</p>
                   </div>
                 </TabsContent>
                 <TabsContent value="customers" className="mt-6">
-                  <div className="h-64 bg-muted/50 rounded-lg flex items-center justify-center">
+                  <div className="h-64 bg-muted/60 rounded-xl flex items-center justify-center">
                     <p className="text-muted-foreground">Customer chart would be displayed here</p>
                   </div>
                 </TabsContent>

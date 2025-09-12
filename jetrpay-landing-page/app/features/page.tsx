@@ -89,23 +89,28 @@ const businessBenefits = [
   },
 ]
 
+
 export default function FeaturesPage() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/40">
       <Header />
 
       <main>
         {/* Hero Section */}
-        <section className="py-16 md:py-24 bg-gradient-to-br from-background via-background to-muted/30">
-          <div className="container mx-auto px-4">
-            <div className="text-center space-y-6 max-w-4xl mx-auto">
-              <Badge variant="outline" className="bg-primary/10 text-primary border-primary/20">
+        <section className="py-20 md:py-32 relative overflow-hidden">
+          <div className="absolute inset-0 pointer-events-none z-0">
+            <div className="absolute -top-32 -left-32 w-[600px] h-[600px] bg-gradient-to-br from-primary/30 to-secondary/20 rounded-full blur-3xl opacity-60 animate-float" />
+            <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-gradient-to-tr from-secondary/30 to-primary/10 rounded-full blur-2xl opacity-40 animate-float-slow" />
+          </div>
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="text-center space-y-8 max-w-4xl mx-auto">
+              <Badge variant="outline" className="bg-primary/10 text-primary border-primary/20 animate-fade-in">
                 Platform Features
               </Badge>
-              <h1 className="font-heading font-bold text-4xl md:text-5xl lg:text-6xl text-balance">
+              <h1 className="font-heading font-bold text-4xl md:text-5xl lg:text-6xl text-balance animate-slide-up">
                 Everything You Need for <span className="text-primary">Modern Payments</span>
               </h1>
-              <p className="text-lg md:text-xl text-muted-foreground text-pretty leading-relaxed">
+              <p className="text-lg md:text-xl text-muted-foreground text-pretty leading-relaxed animate-fade-in delay-200">
                 JetrPay combines the power of blockchain technology with user-friendly interfaces to deliver the most
                 comprehensive stablecoin payment platform.
               </p>
@@ -114,24 +119,28 @@ export default function FeaturesPage() {
         </section>
 
         {/* Main Features */}
-        <section className="py-16 md:py-24">
+        <section className="py-20 md:py-32">
           <div className="container mx-auto px-4">
             <div className="grid lg:grid-cols-2 gap-16">
               {mainFeatures.map((feature, index) => (
-                <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-shadow">
-                  <CardContent className="p-8 space-y-6">
+                <Card
+                  key={index}
+                  className="glass-effect border-0 shadow-xl hover:scale-[1.025] hover:shadow-2xl transition-all duration-300 group relative overflow-hidden"
+                >
+                  <div className="absolute -top-10 -right-10 w-32 h-32 bg-gradient-to-br from-primary/20 to-secondary/10 rounded-full blur-2xl opacity-30 group-hover:opacity-50 transition-opacity duration-300" />
+                  <CardContent className="p-10 space-y-8">
                     <div className="flex items-start gap-4">
-                      <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                        <feature.icon className="h-6 w-6 text-primary" />
+                      <div className="h-14 w-14 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 shadow-md group-hover:scale-110 transition-transform duration-300">
+                        <feature.icon className="h-7 w-7 text-primary animate-bounce-on-hover" />
                       </div>
                       <div className="space-y-2">
-                        <h3 className="font-heading font-bold text-2xl">{feature.title}</h3>
+                        <h3 className="font-heading font-bold text-2xl group-hover:text-primary transition-colors duration-200">{feature.title}</h3>
                         <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
                       </div>
                     </div>
                     <div className="grid grid-cols-2 gap-3">
                       {feature.benefits.map((benefit, idx) => (
-                        <div key={idx} className="flex items-center gap-2">
+                        <div key={idx} className="flex items-center gap-2 animate-fade-in delay-100">
                           <CheckCircle className="h-4 w-4 text-secondary flex-shrink-0" />
                           <span className="text-sm">{benefit}</span>
                         </div>

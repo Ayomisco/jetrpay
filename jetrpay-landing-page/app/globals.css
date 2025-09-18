@@ -4,120 +4,80 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Updated to dark-first color scheme inspired by blockradar.co and paycrest.io */
-  --background: oklch(0.08 0.01 180); /* Very dark teal-gray background */
-  --foreground: oklch(0.95 0.005 180); /* Light gray text */
-  --card: oklch(0.12 0.01 180); /* Dark card background */
-  --card-foreground: oklch(0.95 0.005 180); /* Light card text */
-  --popover: oklch(0.12 0.01 180); /* Dark popover */
-  --popover-foreground: oklch(0.95 0.005 180); /* Light popover text */
-  --primary: oklch(0.55 0.15 180); /* Bright teal primary */
-  --primary-foreground: oklch(0.08 0.01 180); /* Dark text on primary */
-  --secondary: oklch(0.7 0.12 140); /* Bright green accent */
-  --secondary-foreground: oklch(0.08 0.01 180); /* Dark text on secondary */
-  --muted: oklch(0.18 0.01 180); /* Dark muted */
-  --muted-foreground: oklch(0.65 0.005 180); /* Medium gray muted text */
-  --accent: oklch(0.25 0.01 180); /* Dark accent */
-  --accent-foreground: oklch(0.95 0.005 180); /* Light accent text */
-  --destructive: oklch(0.6 0.2 25); /* Red for errors */
-  --destructive-foreground: oklch(0.95 0.005 180); /* Light destructive text */
-  --border: oklch(0.25 0.01 180); /* Dark borders */
-  --input: oklch(0.25 0.01 180); /* Dark input backgrounds */
-  --ring: oklch(0.55 0.15 180 / 0.5); /* Bright teal focus ring */
-  --chart-1: oklch(0.55 0.15 180); /* Bright teal for charts */
-  --chart-2: oklch(0.7 0.12 140); /* Bright green for charts */
-  --chart-3: oklch(0.7 0.15 220); /* Bright blue for charts */
-  --chart-4: oklch(0.8 0.15 60); /* Bright orange for charts */
-  --chart-5: oklch(0.7 0.2 25); /* Bright red for charts */
-  --radius: 0.75rem; /* More rounded corners for modern look */
-  --sidebar: oklch(0.15 0.01 180); /* Dark sidebar */
-  --sidebar-foreground: oklch(0.95 0.005 180); /* Light sidebar text */
-  --sidebar-primary: oklch(0.55 0.15 180); /* Bright teal sidebar */
-  --sidebar-primary-foreground: oklch(0.08 0.01 180); /* Dark sidebar text */
-  --sidebar-accent: oklch(0.25 0.01 180); /* Dark sidebar accent */
-  --sidebar-accent-foreground: oklch(0.95 0.005 180); /* Light sidebar accent text */
-  --sidebar-border: oklch(0.25 0.01 180); /* Dark sidebar borders */
-  --sidebar-ring: oklch(0.55 0.15 180 / 0.5); /* Bright teal sidebar ring */
-  --font-dm-sans: "DM Sans", sans-serif;
-  --font-space-grotesk: "Space Grotesk", sans-serif;
+  /* Updated design tokens for waitlist page aesthetic */
+  --background: #1a202c;
+  --foreground: #f7fafc;
+  --card: #4a5568;
+  --card-foreground: #f7fafc;
+  --popover: #6b46c1;
+  --popover-foreground: #ffffff;
+  --primary: #6b46c1;
+  --primary-foreground: #f7fafc;
+  --secondary: #ea580c;
+  --secondary-foreground: #ffffff;
+  --muted: #4a5568;
+  --muted-foreground: #f7fafc;
+  --accent: #ea580c;
+  --accent-foreground: #ffffff;
+  --destructive: #e53e3e;
+  --destructive-foreground: #ffffff;
+  --border: #4a5568;
+  --input: #2d3748;
+  --ring: rgba(255, 165, 0, 0.5);
+  --chart-1: #6b46c1;
+  --chart-2: #ea580c;
+  --chart-3: #f7fafc;
+  --chart-4: #4a5568;
+  --chart-5: #1a202c;
+  --radius: 0.5rem;
+  --sidebar: #1a202c;
+  --sidebar-foreground: #f7fafc;
+  --sidebar-primary: #6b46c1;
+  --sidebar-primary-foreground: #f7fafc;
+  --sidebar-accent: #ea580c;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #4a5568;
+  --sidebar-ring: rgba(255, 165, 0, 0.5);
 }
 
 .dark {
-  /* Updated dark mode tokens to maintain fintech aesthetic */
-  --background: oklch(0.08 0.01 180); /* Very dark teal-gray */
-  --foreground: oklch(0.95 0.005 180); /* Light gray text */
-  --card: oklch(0.12 0.01 180); /* Dark card background */
-  --card-foreground: oklch(0.95 0.005 180); /* Light card text */
-  --popover: oklch(0.12 0.01 180); /* Dark popover */
-  --popover-foreground: oklch(0.95 0.005 180); /* Light popover text */
-  --primary: oklch(0.55 0.15 180); /* Lighter teal for dark mode */
-  --primary-foreground: oklch(0.08 0.01 180); /* Dark text on primary */
-  --secondary: oklch(0.25 0.01 180); /* Dark secondary */
-  --secondary-foreground: oklch(0.95 0.005 180); /* Light secondary text */
-  --muted: oklch(0.18 0.01 180); /* Dark muted */
-  --muted-foreground: oklch(0.65 0.005 180); /* Medium gray muted text */
-  --accent: oklch(0.25 0.01 180); /* Dark accent */
-  --accent-foreground: oklch(0.95 0.005 180); /* Light accent text */
-  --destructive: oklch(0.5 0.2 25); /* Darker red for dark mode */
-  --destructive-foreground: oklch(0.95 0.005 180); /* Light destructive text */
-  --border: oklch(0.25 0.01 180); /* Dark borders */
-  --input: oklch(0.25 0.01 180); /* Dark input backgrounds */
-  --ring: oklch(0.55 0.15 180 / 0.5); /* Lighter teal focus ring */
-  --chart-1: oklch(0.55 0.15 180); /* Lighter teal for charts */
-  --chart-2: oklch(0.7 0.12 140); /* Lighter green for charts */
-  --chart-3: oklch(0.7 0.15 220); /* Lighter blue for charts */
-  --chart-4: oklch(0.8 0.15 60); /* Lighter orange for charts */
-  --chart-5: oklch(0.7 0.2 25); /* Lighter red for charts */
-  --sidebar: oklch(0.15 0.01 180); /* Dark sidebar */
-  --sidebar-foreground: oklch(0.95 0.005 180); /* Light sidebar text */
-  --sidebar-primary: oklch(0.55 0.15 180); /* Lighter teal sidebar */
-  --sidebar-primary-foreground: oklch(0.08 0.01 180); /* Dark sidebar text */
-  --sidebar-accent: oklch(0.25 0.01 180); /* Dark sidebar accent */
-  --sidebar-accent-foreground: oklch(0.95 0.005 180); /* Light sidebar accent text */
-  --sidebar-border: oklch(0.25 0.01 180); /* Dark sidebar borders */
-  --sidebar-ring: oklch(0.55 0.15 180 / 0.5); /* Lighter teal sidebar ring */
-}
-
-.light {
-  /* Light mode as alternative theme */
-  --background: oklch(0.97 0.005 180); /* Light teal-gray background */
-  --foreground: oklch(0.25 0.01 180); /* Dark gray text */
-  --card: oklch(1 0 0); /* Pure white cards */
-  --card-foreground: oklch(0.25 0.01 180); /* Dark gray card text */
-  --popover: oklch(1 0 0); /* White popovers */
-  --popover-foreground: oklch(0.25 0.01 180); /* Dark gray popover text */
-  --primary: oklch(0.45 0.15 180); /* Teal primary color */
-  --primary-foreground: oklch(0.98 0 0); /* White text on primary */
-  --secondary: oklch(0.6 0.12 140); /* Accent green */
-  --secondary-foreground: oklch(0.98 0 0); /* White text on secondary */
-  --muted: oklch(0.94 0.01 180); /* Light gray muted */
-  --muted-foreground: oklch(0.5 0.01 180); /* Medium gray muted text */
-  --accent: oklch(0.6 0.15 220); /* Accent blue */
-  --accent-foreground: oklch(0.98 0 0); /* White text on accent */
-  --destructive: oklch(0.6 0.2 25); /* Red for errors */
-  --destructive-foreground: oklch(0.98 0 0); /* White text on destructive */
-  --border: oklch(0.85 0.01 180); /* Light gray borders */
-  --input: oklch(1 0 0); /* White input backgrounds */
-  --ring: oklch(0.45 0.15 180 / 0.5); /* Semi-transparent teal focus ring */
-  --chart-1: oklch(0.45 0.15 180); /* Teal for charts */
-  --chart-2: oklch(0.6 0.12 140); /* Green for charts */
-  --chart-3: oklch(0.6 0.15 220); /* Blue for charts */
-  --chart-4: oklch(0.7 0.15 60); /* Orange for charts */
-  --chart-5: oklch(0.6 0.2 25); /* Red for charts */
-  --sidebar: oklch(1 0 0); /* White sidebar */
-  --sidebar-foreground: oklch(0.25 0.01 180); /* Dark gray sidebar text */
-  --sidebar-primary: oklch(0.45 0.15 180); /* Teal sidebar highlights */
-  --sidebar-primary-foreground: oklch(0.98 0 0); /* White sidebar text */
-  --sidebar-accent: oklch(0.6 0.12 140); /* Green sidebar accent */
-  --sidebar-accent-foreground: oklch(0.98 0 0); /* White sidebar accent text */
-  --sidebar-border: oklch(0.85 0.01 180); /* Light gray sidebar borders */
-  --sidebar-ring: oklch(0.45 0.15 180 / 0.5); /* Teal sidebar focus ring */
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.145 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.145 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.985 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: oklch(0.269 0 0);
+  --input: oklch(0.269 0 0);
+  --ring: oklch(0.439 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
 }
 
 @theme inline {
-  /* Updated font variables to match design brief */
-  --font-sans: var(--font-dm-sans);
-  --font-heading: var(--font-space-grotesk);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -163,20 +123,62 @@
   body {
     @apply bg-background text-foreground;
   }
-  /* Added modern gradient and glass effects */
-  .glass-effect {
-    @apply backdrop-blur-xl bg-background/80 border border-border/50;
-  }
+}
 
-  .gradient-text {
-    @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
+/* Custom animations */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
   }
+  100% {
+    transform: translateX(-50%);
+  }
+}
 
-  .curved-border {
-    border-radius: 2rem;
-  }
+.animate-scroll {
+  animation: scroll 30s linear infinite;
+}
 
-  .font-heading {
-    font-family: var(--font-heading);
+/* Added floating animation for waitlist page elements */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
   }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Added pulse glow animation for interactive elements */
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(107, 70, 193, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(107, 70, 193, 0.6);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Grid pattern for hero background */
+.bg-grid-pattern {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Added subtle grid pattern for waitlist page */
+.bg-grid-subtle {
+  background-image: linear-gradient(rgba(107, 70, 193, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(107, 70, 193, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
 }

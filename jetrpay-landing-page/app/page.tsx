@@ -5,7 +5,7 @@ import { TickerSection } from "@/components/ticker-section"
 import { MoneyTransferSection } from "@/components/money-transfer-section"
 import { FeaturesGrid } from "@/components/features-grid"
 import { CreditBuildingSection } from "@/components/credit-building-section"
-import { Footer } from "@/components/footer"
+import Footer from "@/components/footer"
 
 export default function HomePage() {
   return (

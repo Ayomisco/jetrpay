@@ -18,6 +18,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} bg-gray-950 text-gray-100`}>
+        <div className="w-full flex justify-center pt-6 pb-2">
+          <img src="/jetrpay_logo_yellow.png" alt="JetrPay Logo" className="h-12 md:h-16" />
+        </div>
         {children}
         <Analytics />
       </body>

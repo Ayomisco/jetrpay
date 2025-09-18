@@ -16,7 +16,7 @@ export function Header() {
               <div className="flex items-center gap-3">
                 <div className="relative flex items-center">
                     <img src="/jetrpay_logo_yellow.png" alt="JetrPay Logo" className="h-20 w-auto" />
-                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-1 py-0.5 rounded border border-yellow-400 bg-gray-900 text-yellow-400 text-[0.5rem] font-bold" style={{top: '-0.7rem'}}>DEVNET</span>
+                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-1 py-0.5 rounded border border-yellow-400 bg-gray-900 text-yellow-400 text-[0.3rem] font-bold" style={{top: '-0.7rem'}}>DEVNET</span>
                 </div>
               </div>
 
@@ -31,7 +31,7 @@ export function Header() {
               <div className="flex items-center gap-2">
                 <img src="/jetrpay_logo_yellow.png" alt="JetrPay Logo" className="h-12 w-auto" />
                 {/* <span className="font-bold text-xl tracking-tight text-yellow-400">JetrPay</span> */}
-                <span className="ml-2 px-2 py-0.5 rounded border border-yellow-400 text-yellow-400 text-xs font-bold">DEVNET</span>
+                <span className="ml-2 px-2 py-0.5 rounded border border-yellow-400 text-yellow-400 text-[0.3rem] font-bold">DEVNET</span>
               </div>
               <button
                 className="text-yellow-400 text-2xl focus:outline-none"

@@ -5,9 +5,9 @@ import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
-  generator: 'v0.app',
+  title: 'JetrPay – Stablecoin Payments for Africa',
+  description: 'JetrPay is a stablecoin-first, blockchain-agnostic crypto payment and fiat on/off-ramp platform for Africa and beyond. Buy, sell, accept, and swap USDC and digital assets using local payment methods.',
+  generator: 'JetrPay',
 }
 
 export default function RootLayout({

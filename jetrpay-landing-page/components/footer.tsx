@@ -6,9 +6,9 @@ export default function Footer() {
   return (
     <footer className="bg-gray-900 py-12 px-4 text-center">
       <div className="flex flex-col items-center gap-8">
-        <div className="relative flex items-center justify-center mb-2" style={{height:'4rem'}}>
-          <img src="/jetrpay_logo_yellow.png" alt="JetrPay Logo" className="h-20 w-auto my-0" />
-          <span className="absolute top-0.5 left-17 px-1 py-0.5 rounded border my-0 border-yellow-400 bg-gray-900 text-yellow-400 text-[0.3rem] font-bold">DEVNET</span>
+        <div className="flex items-center gap-2 justify-center mb-2">
+          <img src="/jetrpay_logo_yellow.png" alt="JetrPay Logo" className="h-8 w-auto md:h-10" />
+          <span className="px-2 py-0.5 rounded border border-yellow-400 bg-gray-900 text-yellow-400 text-[0.65rem] font-bold align-top" style={{position:'relative', top:'-0.7em'}}>DEVNET</span>
         </div>
 
         <a

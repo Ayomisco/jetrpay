@@ -5,19 +5,21 @@ import Footer from "@/components/footer"
 function WaitlistNavbar() {
 	return (
 		<header className="fixed top-0 left-0 right-0 z-50 shadow-md">
-			<div className="px-4 py-4">
+			<div className="px-2 py-2">
 				<div className="container mx-auto">
-					<nav className="flex items-center justify-between">
-															<div className="relative flex items-center">
-																<img src="/jetrpay_logo_yellow.png" alt="JetrPay Logo" className="h-16 w-auto" />
-																<span className="absolute -top-1 left-14 px-1 py-0.5 rounded border border-yellow-400 bg-gray-900 text-yellow-400 text-[0.5rem] font-bold">BETA</span>
-									</div>
-						<a
-							href="#waitlist"
-							className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 px-6 py-2 rounded-full text-sm font-bold shadow-md"
-						>
-							Join Waitlist
-						</a>
+					<nav className="flex items-center justify-center">
+						<div className="bg-gray-900 rounded-full px-3 md:px-6 py-2 flex items-center justify-between w-full max-w-4xl shadow-sm">
+							<div className="flex items-center gap-2">
+								<img src="/jetrpay_logo_yellow.png" alt="JetrPay Logo" className="h-8 w-auto md:h-10" />
+								<span className="px-2 py-0.5 rounded border border-yellow-400 bg-gray-900 text-yellow-400 text-[0.65rem] font-bold align-top" style={{position:'relative', top:'-0.7em'}}>DEVNET</span>
+							</div>
+							<a
+								href="#waitlist"
+								className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 px-5 py-1.5 rounded-full text-sm font-bold shadow-md ml-3"
+							>
+								Join Waitlist
+							</a>
+						</div>
 					</nav>
 				</div>
 			</div>
@@ -32,12 +34,12 @@ export default function WaitlistPage() {
 			<section className="relative min-h-[60vh] bg-gray-900 bg-grid-pattern overflow-hidden flex items-center justify-center">
 				<div className="container mx-auto px-4 pt-32 pb-20 relative z-10">
 					<div className="max-w-md mx-auto w-full">
-						<h1 className="text-3xl md:text-4xl font-extrabold text-white mb-6 leading-tight tracking-tight font-serif text-center">
-							Join the JetrPay Waitlist
-						</h1>
-						<p className="text-base md:text-lg text-gray-400 mb-8 font-light leading-relaxed text-center font-mono">
-							Be among the first to experience seamless global payments and credit building. Enter your email below for early access.
-						</p>
+												<h1 className="text-4xl md:text-5xl font-extrabold text-yellow-400 mb-6 leading-tight tracking-tight font-serif text-center">
+													Get Early Access to JetrPay
+												</h1>
+												<p className="text-base md:text-lg text-gray-300 mb-8 font-light leading-relaxed text-center font-mono">
+													Join the waitlist to be the first to experience seamless stablecoin payments, swaps, and fiat on/off-ramp for Africa and beyond. Simple. Secure. Powerful.
+												</p>
 						<form className="flex flex-col gap-4">
 							<input
 								type="email"

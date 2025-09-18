@@ -61,7 +61,7 @@ export default function WaitlistPage() {
 								className="h-10 w-auto mr-3"
 								style={{ borderRadius: '9999px', background: '#222' }}
 							/>
-							<span className="text-gray-200 text-sm font-mono">12.7k Explorers already waiting</span>
+							<span className="text-gray-200 text-sm font-mono">1k+ users already waiting</span>
 						</div>
 					</div>
 				</div>

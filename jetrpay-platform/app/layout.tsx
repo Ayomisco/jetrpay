@@ -1,16 +1,25 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { GeistSans } from "geist/font/sans"
-import { GeistMono } from "geist/font/mono"
+import { Inter } from "next/font/google"
+import { JetBrains_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
 import "./globals.css"
 
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+})
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-jetbrains-mono",
+})
+
 export const metadata: Metadata = {
-  title: "JetrPay - Powering the Next Generation of Borderless Payments",
-  description:
-    "Seamless fiat-to-stablecoin payment platform built on Flow blockchain. Send, receive, and manage cross-border payments with USDC instantly, securely, and affordably.",
-  generator: "JetrPay",
+  title: "JetrPay - Powering Borderless Payments",
+  description: "Mobile-first crypto wallet for stablecoin payments",
+  generator: "v0.app",
 }
 
 export default function RootLayout({
@@ -19,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`dark ${GeistSans.variable} ${GeistMono.variable}`}>
+    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable} dark`}>
       <body className="font-sans antialiased">
         <Suspense fallback={null}>{children}</Suspense>
         <Analytics />

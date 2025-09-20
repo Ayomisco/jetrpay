@@ -1,0 +1,23 @@
+{
+  "accounts": {
+    "admin": {
+      "address": "0x01cf0e2f2f715450",
+      "key": ""
+    }
+  },
+  "contracts": {
+    "JetrPay": "./contracts/JetrPay.cdc"
+  },
+  "networks": {
+    "emulator": "127.0.0.1:3569",
+    "testnet": "access.testnet.nodes.onflow.org:9000"
+  },
+  "deployments": {
+    "emulator": {
+      "admin": ["JetrPay"]
+    },
+    "testnet": {
+      "admin": ["JetrPay"]
+    }
+  }
+}

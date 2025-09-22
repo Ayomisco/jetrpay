@@ -1,24 +1,8 @@
 {
-  "accounts": {
-    "admin": {
-      "address": "0x01cf0e2f2f715450",
-      "key": ""
-    }
-  },
-  "contracts": {
-    "JetrPay": "./contracts/JetrPay.cdc",
-    "USDCVault": "./contracts/USDCVault.cdc"
-  },
-  "networks": {
-    "emulator": "127.0.0.1:3569",
-    "testnet": "access.testnet.nodes.onflow.org:9000"
-  },
-  "deployments": {
-    "emulator": {
-      "admin": ["JetrPay", "USDCVault"]
-    },
-    "testnet": {
-      "admin": ["JetrPay", "USDCVault"]
-    }
-  }
+	"networks": {
+		"emulator": "127.0.0.1:3569",
+		"mainnet": "access.mainnet.nodes.onflow.org:9000",
+		"testing": "127.0.0.1:3569",
+		"testnet": "access.devnet.nodes.onflow.org:9000"
+	}
 }

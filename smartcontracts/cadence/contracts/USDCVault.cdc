@@ -33,7 +33,7 @@ access(all) contract USDCVault {
             // Get recipient's vault reference
             let recipientReceiver = getAccount(recipient)
                 .getCapability(USDCVault.VaultPublicPath)
-                .borrow<&Vault{IVaultPublic}>()
+                .borrow<&{IVaultPublic}>()
                 ?? panic("Could not get receiver reference to the recipient's vault")
             
             // Create new vault with minted tokens

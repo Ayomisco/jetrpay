@@ -7,25 +7,25 @@
 /// The contract is designed to be used by the JetrPay platform for handling stablecoin
 /// operations in Africa and emerging markets.
 
-pub contract USDCVault {
+access(all) contract USDCVault {
     // Events
-    pub event TokensMinted(amount: UFix64, recipient: Address)
-    pub event TokensBurned(amount: UFix64, from: Address)
-    pub event TokensTransferred(amount: UFix64, from: Address, to: Address)
-    pub event VaultCreated(owner: Address)
+    access(all) event TokensMinted(amount: UFix64, recipient: Address)
+    access(all) event TokensBurned(amount: UFix64, from: Address)
+    access(all) event TokensTransferred(amount: UFix64, from: Address, to: Address)
+    access(all) event VaultCreated(owner: Address)
     
     // Paths
-    pub let VaultStoragePath: StoragePath
-    pub let VaultPublicPath: PublicPath
-    pub let AdminStoragePath: StoragePath
+    access(all) let VaultStoragePath: StoragePath
+    access(all) let VaultPublicPath: PublicPath
+    access(all) let AdminStoragePath: StoragePath
     
     // Total supply of USDC tokens
-    pub var totalSupply: UFix64
+    access(all) var totalSupply: UFix64
     
     // Admin resource that can mint and burn tokens
-    pub resource Admin {
+    access(all) resource Admin {
         // Mint new tokens and deposit them into recipient's vault
-        pub fun mintTokens(amount: UFix64, recipient: Address) {
+        access(all) fun mintTokens(amount: UFix64, recipient: Address) {
             pre {
                 amount > 0.0: "Amount minted must be greater than zero"
             }
@@ -49,7 +49,7 @@ pub contract USDCVault {
         }
         
         // Burn tokens from a vault
-        pub fun burnTokens(from: @Vault) {
+        access(all) fun burnTokens(from: @Vault) {
             let amount = from.balance
             
             // Decrease total supply
@@ -67,24 +67,24 @@ pub contract USDCVault {
     }
     
     // Public interface that users can cast their Vault references to
-    pub resource interface IVaultPublic {
-        pub var balance: UFix64
-        pub fun deposit(from: @Vault)
-        pub fun getOwnerAddress(): Address?
+    access(all) resource interface IVaultPublic {
+        access(all) var balance: UFix64
+        access(all) fun deposit(from: @Vault)
+        access(all) fun getOwnerAddress(): Address?
     }
     
     // Private interface with withdraw capability
-    pub resource interface IVaultPrivate {
-        pub fun withdraw(amount: UFix64): @Vault
+    access(all) resource interface IVaultPrivate {
+        access(all) fun withdraw(amount: UFix64): @Vault
     }
     
     // The Vault resource that holds the tokens
-    pub resource Vault: IVaultPublic, IVaultPrivate {
+    access(all) resource Vault: IVaultPublic, IVaultPrivate {
         // The total balance of this vault
-        pub var balance: UFix64
+        access(all) var balance: UFix64
         
         // The owner of this vault
-        pub var owner: PublicAccount?
+        access(all) var owner: PublicAccount?
         
         // Initialize a new vault with the given balance
         init(balance: UFix64) {
@@ -93,17 +93,17 @@ pub contract USDCVault {
         }
         
         // Set the owner of this vault
-        pub fun setOwner(owner: PublicAccount) {
+        access(all) fun setOwner(owner: PublicAccount) {
             self.owner = owner
         }
         
         // Get the owner's address
-        pub fun getOwnerAddress(): Address? {
+        access(all) fun getOwnerAddress(): Address? {
             return self.owner?.address
         }
         
         // Withdraw tokens from the vault
-        pub fun withdraw(amount: UFix64): @Vault {
+        access(all) fun withdraw(amount: UFix64): @Vault {
             pre {
                 amount > 0.0: "Amount withdrawn must be greater than zero"
                 amount <= self.balance: "Insufficient funds"
@@ -117,7 +117,7 @@ pub contract USDCVault {
         }
         
         // Deposit tokens into the vault
-        pub fun deposit(from: @Vault) {
+        access(all) fun deposit(from: @Vault) {
             // Add the deposited balance to this vault's balance
             self.balance = self.balance + from.balance
             
@@ -127,7 +127,7 @@ pub contract USDCVault {
     }
     
     // Create a new empty vault
-    pub fun createEmptyVault(owner: PublicAccount): @Vault {
+    access(all) fun createEmptyVault(owner: PublicAccount): @Vault {
         let vault <- create Vault(balance: 0.0)
         vault.setOwner(owner)
         

@@ -1,0 +1,203 @@
+# 🚀 JetrPay Development Roadmap (with Smart Contracts Focus)
+
+## 🔷 1. 🧠 Project Overview
+
+### Project Name:
+
+JetrPay
+
+### One-liner:
+
+A stablecoin-powered onramp, offramp, and crypto payment infrastructure for individuals and businesses in Africa and emerging markets. Amazing
+
+JetrPay is a stablecoin-powered on-ramp and payment infrastructure for individuals and businesses in Africa and emerging markets — enabling instant buy, sell, accept, and swap of stablecoins like USDC via local fiat payment methods.
+
+### 🧠 Project Description
+
+JetrPay is building a crypto-fiat bridge for the real world — starting in Africa. We're solving broken remittance systems, expensive FX conversions, and crypto usability barriers by creating a flow-powered, non-custodial platform for:
+
+- Buying stablecoins with fiat (card, bank, mobile money)
+- Withdrawing to bank accounts or mobile wallets
+- Accepting crypto payments for merchants
+- Enabling asset swaps (e.g., USDC → FLOW, ETH, SOL)
+- Simple integration for dApps and developers (Post-MVP)
+
+All designed with speed, trust, simplicity, and mobile-first UX at the core.
+
+## 🔷 2. 🌍 Key Objectives
+
+| Problem                            | JetrPay Solution                          |
+| ---------------------------------- | ----------------------------------------- |
+| Expensive, slow FX & remittance    | Instant stablecoin (USDC.e) transfers     |
+| Limited access to crypto in Africa | Fiat onramp via cards, bank, mobile money |
+| Merchant crypto payments are hard  | Easy P2P and P2B stablecoin transactions  |
+| Users lack technical knowledge     | Walletless onboarding and simple UX       |
+| Manual crypto operations           | Forte automation via Agents and Actions   |
+
+## 🔷 3. 🎯 Core Features (MVP Scope)
+
+| Feature Category  | Feature                                            |
+| ----------------- | -------------------------------------------------- |
+| Onboarding        | Email/social login, KYC with SmileID               |
+| Fiat Onramp       | Deposit via Paystack/Flutterwave to buy USDC       |
+| Stablecoin Wallet | Send, receive, check balance (USDC.e on Flow)      |
+| Payments          | Pay merchants or friends via QR/code               |
+| Offramp           | Withdraw USDC to Naira bank or mobile money        |
+| Automation        | Subscriptions, auto-top-ups (via Forte)            |
+| Swaps (Later)     | USDC ↔ FLOW, ETH, SOL (via Increment.fi / Axelar) |
+
+## 🔷 4. 🧭 User Journey Flow
+
+```
+flowchart TD
+    A[User Visits App] --> B[Sign up with Email/Social]
+    B --> C[KYC with SmileID]
+    C --> D[Dashboard: View Balances]
+    D --> E[Deposit Fiat via Paystack]
+    E --> F[Backend Mints USDC to Flow Wallet]
+    F --> G[Send/Receive USDC (P2P/P2B)]
+    G --> H[Withdraw to Bank/Mobile (Offramp)]
+    G --> I[Setup Subscription (Forte Agent)]
+```
+
+## 🔷 5. 🏗️ Project Structure
+
+### Main Backend/Frontend Repo
+
+```
+jetrpay/
+├── frontend/                # React + FCL
+├── backend/                 # Node/Express + PostgreSQL
+└── smart-contracts/         # All Cadence and contract logic
+```
+
+## 🔷 6. 📁 Smart Contract Structure (smart-contracts/cadence/)
+
+```
+smart-contracts/
+└── cadence/
+    ├── contracts/
+    │   ├── JetrPay.cdc                # Main contract
+    │   ├── USDCVault.cdc              # Stablecoin vault and ledger
+    │   ├── ForteActions.cdc           # Actions like PayMerchant, StreamPay
+    │   ├── ForteAgents.cdc            # Recurring Agents (subscriptions, auto-topup)
+    │   └── interfaces/
+    │       ├── IPaymentAction.cdc
+    │       └── IUserVault.cdc
+    │
+    ├── transactions/
+    │   ├── onboarding/
+    │   │   ├── create_account.cdc
+    │   │   └── upgrade_account.cdc
+    │   ├── stablecoin/
+    │   │   ├── mint_usdc.cdc
+    │   │   ├── transfer_usdc.cdc
+    │   │   └── burn_usdc.cdc
+    │   ├── payments/
+    │   │   ├── pay_merchant.cdc
+    │   │   └── send_peer.cdc
+    │   └── forte/
+    │       ├── create_action.cdc
+    │       ├── execute_action.cdc
+    │       └── create_agent.cdc
+    │
+    ├── scripts/
+    │   ├── get_balance.cdc
+    │   ├── get_transactions.cdc
+    │   └── get_active_agents.cdc
+    │
+    ├── test/
+    │   └── JetrPay.test.js
+    │
+    ├── flow.json
+    └── README.md
+```
+
+## 🔷 7. 🧱 Smart Contract Development Plan
+
+### Phase 1: Basic Token Management (USDC Vault)
+
+| Task              | Description                                      |
+| ----------------- | ------------------------------------------------ |
+| USDCVault.cdc     | Manages user balances, deposits, and withdrawals |
+| mint_usdc.cdc     | Only backend/admin can mint USDC on user deposit |
+| burn_usdc.cdc     | Burn USDC on fiat withdrawal                     |
+| transfer_usdc.cdc | P2P transfer logic                               |
+
+### Phase 2: Payment Flows
+
+| Task               | Description                    |
+| ------------------ | ------------------------------ |
+| pay_merchant.cdc   | Send USDC to merchant wallet   |
+| send_peer.cdc      | Normal user-to-user transfers  |
+| IPaymentAction.cdc | Standard interface for Actions |
+
+### Phase 3: Forte Automation (Actions & Agents)
+
+| Task               | Description                                             |
+| ------------------ | ------------------------------------------------------- |
+| ForteActions.cdc   | Custom Cadence actions (e.g. SplitPayment, SchedulePay) |
+| create_action.cdc  | Create reusable action logic                            |
+| execute_action.cdc | Call action when triggered                              |
+| ForteAgents.cdc    | Monitor rules, recurring logic                          |
+| create_agent.cdc   | Set up auto-pay, top-ups                                |
+
+## 🔷 8. 🧠 Suggested Smart Contract Stack
+
+| Tool            | Purpose                             | Link                                                                                              |
+| --------------- | ----------------------------------- | ------------------------------------------------------------------------------------------------- |
+| Flow            | Main blockchain                     | https://docs.onflow.org                                                                           |
+| Cadence         | Smart contract language             | https://docs.onflow.org/cadence                                                                   |
+| FCL             | JS SDK to interact with Flow        | https://docs.onflow.org/fcl                                                                       |
+| Forte           | Automation layer (Actions & Agents) | https://flow.com/post/forte-introducing-actions-agents-supercharging-composability-and-automation |
+| Flow Emulator   | Local development                   | flow emulator start                                                                               |
+| Testnet/Mainnet | Deployment targets                  | https://testnet.flow.com                                                                          |
+| VSCode          | IDE                                 | with Cadence plugin                                                                               |
+| Jest            | Test framework                      | for unit & integration tests                                                                      |
+
+## 🔷 9. 🔌 Flow.json Setup (Smart Contract Deployment Config)
+
+```json
+{
+  "accounts": {
+    "admin": {
+      "address": "0x01cf0e2f2f715450",
+      "key": "YOUR_TESTNET_PRIVATE_KEY"
+    }
+  },
+  "networks": {
+    "emulator": "127.0.0.1:3569",
+    "testnet": "access.testnet.nodes.onflow.org:9000"
+  },
+  "deployments": {
+    "testnet": {
+      "admin": [
+        "contracts/JetrPay.cdc",
+        "contracts/USDCVault.cdc",
+        "contracts/ForteActions.cdc"
+      ]
+    }
+  }
+}
+```
+
+## 🔷 10. 🪪 KYC & Backend Services (Overview)
+
+| Function            | Tech                      |
+| ------------------- | ------------------------- |
+| User Authentication | Firebase Auth or Supabase |
+| KYC                 | SmileID API               |
+| Fiat Onramp         | Paystack / Flutterwave    |
+| Backend Language    | Node.js with Express.js   |
+| Database            | PostgreSQL or Firebase    |
+| Flow Interaction    | FCL or Flow JS SDK        |
+
+## ✅ Final Output Summary
+
+| Component         | Folder                                | Notes                             |
+| ----------------- | ------------------------------------- | --------------------------------- |
+| Contracts         | smart-contracts/cadence/contracts/    | JetrPay, USDCVault, ForteActions  |
+| Transactions      | smart-contracts/cadence/transactions/ | For minting, payments, automation |
+| Scripts           | smart-contracts/cadence/scripts/      | To fetch data (e.g., balances)    |
+| Test              | smart-contracts/cadence/test/         | Jest + mocks                      |
+| Deployment Config | smart-contracts/flow.json             | Admin + testnet setup             |

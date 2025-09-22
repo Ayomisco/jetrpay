@@ -6,7 +6,8 @@
     }
   },
   "contracts": {
-    "JetrPay": "./contracts/JetrPay.cdc"
+    "JetrPay": "./contracts/JetrPay.cdc",
+    "USDCVault": "./contracts/USDCVault.cdc"
   },
   "networks": {
     "emulator": "127.0.0.1:3569",
@@ -14,10 +15,10 @@
   },
   "deployments": {
     "emulator": {
-      "admin": ["JetrPay"]
+      "admin": ["JetrPay", "USDCVault"]
     },
     "testnet": {
-      "admin": ["JetrPay"]
+      "admin": ["JetrPay", "USDCVault"]
     }
   }
 }

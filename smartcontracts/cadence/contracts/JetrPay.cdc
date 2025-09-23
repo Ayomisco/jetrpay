@@ -6,11 +6,16 @@ access(all) contract JetrPay {
     // Struct to hold user info
     access(all) struct User {
         access(all) let address: Address
-        access(all) var balance: UFix64
+        access(contract) var balance: UFix64
 
         init(address: Address) {
             self.address = address
             self.balance = 0.0
+        }
+        
+        // Setter function to update balance
+        access(contract) fun addToBalance(amount: UFix64) {
+            self.balance = self.balance + amount
         }
     }
 
@@ -36,8 +41,8 @@ access(all) contract JetrPay {
             panic("User not registered")
         }
 
-        let userData = self.users[user]!
-        userData.balance = userData.balance + amount
+        var userData = self.users[user]!
+        userData.addToBalance(amount: amount)
         self.users[user] = userData
 
         emit Deposit(user: user, amount: amount)

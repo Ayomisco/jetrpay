@@ -1,16 +1,21 @@
-pub contract JetrPay {
+access(all) contract JetrPay {
 
     // Event when a user deposits
-    pub event Deposit(user: Address, amount: UFix64)
+    access(all) event Deposit(user: Address, amount: UFix64)
 
     // Struct to hold user info
-    pub struct User {
-        pub let address: Address
-        pub var balance: UFix64
+    access(all) struct User {
+        access(all) let address: Address
+        access(contract) var balance: UFix64
 
         init(address: Address) {
             self.address = address
             self.balance = 0.0
+        }
+        
+        // Setter function to update balance
+        access(contract) fun addToBalance(amount: UFix64) {
+            self.balance = self.balance + amount
         }
     }
 
@@ -23,7 +28,7 @@ pub contract JetrPay {
     }
 
     // Public function to register a user
-    pub fun registerUser(user: Address) {
+    access(all) fun registerUser(user: Address) {
         if self.users.containsKey(user) {
             panic("User already registered")
         }
@@ -31,20 +36,20 @@ pub contract JetrPay {
     }
 
     // Public function to simulate a deposit
-    pub fun deposit(user: Address, amount: UFix64) {
+    access(all) fun deposit(user: Address, amount: UFix64) {
         if !self.users.containsKey(user) {
             panic("User not registered")
         }
 
-        let userData = self.users[user]!
-        userData.balance = userData.balance + amount
+        var userData = self.users[user]!
+        userData.addToBalance(amount: amount)
         self.users[user] = userData
 
         emit Deposit(user: user, amount: amount)
     }
 
     // Public function to get user balance
-    pub fun getBalance(user: Address): UFix64 {
+    access(all) fun getBalance(user: Address): UFix64 {
         if !self.users.containsKey(user) {
             panic("User not registered")
         }

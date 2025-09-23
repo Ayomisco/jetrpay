@@ -1,8 +1,41 @@
 {
-	"networks": {
-		"emulator": "127.0.0.1:3569",
-		"mainnet": "access.mainnet.nodes.onflow.org:9000",
-		"testing": "127.0.0.1:3569",
-		"testnet": "access.devnet.nodes.onflow.org:9000"
-	}
+  "emulators": {
+    "default": {
+      "port": 3569,
+      "serviceAccount": "emulator-account"
+    }
+  },
+  "contracts": {
+    "JetrPay": "./contracts/JetrPay.cdc",
+    "USDCVault": "./contracts/USDCVault.cdc"
+  },
+  "networks": {
+    "emulator": "127.0.0.1:3569",
+    "mainnet": "access.mainnet.nodes.onflow.org:9000",
+    "testnet": "access.devnet.nodes.onflow.org:9000"
+  },
+  "accounts": {
+    "emulator-account": {
+      "address": "0xf8d6e0586b0a20c7",
+      "key": "6d12eebfef9866c9b6fa92b97c6e705c26a1785b1e7944da701fc545a51d4673"
+    },
+    "admin": {
+      "address": "0x01cf0e2f2f715450",
+      "key": "6d12eebfef9866c9b6fa92b97c6e705c26a1785b1e7944da701fc545a51d4673"
+    }
+  },
+  "deployments": {
+    "emulator": {
+      "emulator-account": [
+        "JetrPay",
+        "USDCVault"
+      ]
+    },
+    "testnet": {
+      "admin": [
+        "JetrPay",
+        "USDCVault"
+      ]
+    }
+  }
 }

@@ -2,6 +2,7 @@ access(all) contract JetrPay {
 
     // Events
     access(all) event Deposit(user: Address, amount: UFix64)
+    access(all) event Transfer(from: Address, to: Address, amount: UFix64)
     access(all) event MerchantPayment(from: Address, to: Address, amount: UFix64, cashback: UFix64)
     access(all) event MerchantRegistered(merchantAddress: Address, cashbackRate: UFix64)
 
@@ -114,6 +115,8 @@ access(all) contract JetrPay {
         recipient.addToBalance(amount: amount)
         self.users[from] = sender
         self.users[to] = recipient
+        
+        emit Transfer(from: from, to: to, amount: amount)
     }
 
     // Public function to get user balance

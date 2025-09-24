@@ -7,7 +7,9 @@
   },
   "contracts": {
     "JetrPay": "./contracts/JetrPay.cdc",
-    "USDCVault": "./contracts/USDCVault.cdc"
+    "USDCVault": "./contracts/USDCVault.cdc",
+    "ForteActions": "./contracts/ForteActions.cdc",
+    "ForteAgents": "./contracts/ForteAgents.cdc"
   },
   "networks": {
     "emulator": "127.0.0.1:3569",
@@ -28,13 +30,17 @@
     "emulator": {
       "emulator-account": [
         "JetrPay",
-        "USDCVault"
+        "USDCVault",
+        "ForteActions",
+        "ForteAgents"
       ]
     },
     "testnet": {
       "admin": [
         "JetrPay",
-        "USDCVault"
+        "USDCVault",
+        "ForteActions",
+        "ForteAgents"
       ]
     }
   }

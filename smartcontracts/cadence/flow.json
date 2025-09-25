@@ -9,7 +9,8 @@
     "JetrPay": "./contracts/JetrPay.cdc",
     "USDCVault": "./contracts/USDCVault.cdc",
     "ForteActions": "./contracts/ForteActions.cdc",
-    "ForteAgents": "./contracts/ForteAgents.cdc"
+    "ForteAgents": "./contracts/ForteAgents.cdc",
+    "LoyaltyProgram": "./contracts/LoyaltyProgram.cdc"
   },
   "networks": {
     "emulator": "127.0.0.1:3569",
@@ -29,6 +30,7 @@
   "deployments": {
     "emulator": {
       "emulator-account": [
+        "LoyaltyProgram",
         "JetrPay",
         "USDCVault",
         "ForteActions",
@@ -37,6 +39,7 @@
     },
     "testnet": {
       "admin": [
+        "LoyaltyProgram",
         "JetrPay",
         "USDCVault",
         "ForteActions",

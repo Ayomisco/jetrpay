@@ -20,10 +20,20 @@ smart-contracts/
 
 ## Contract Overview
 
-The JetrPay contract provides basic functionality for:
-- User registration on the platform
-- Tracking stablecoin deposits
-- Managing user balances
+The JetrPay platform provides comprehensive functionality for:
+- **JetrPay**: Core user registration, deposits, transfers, and merchant payments
+- **USDCVault**: Secure stablecoin vault and ledger management
+- **ForteActions**: Automated payment actions (recurring payments, split payments)
+- **ForteAgents**: Monitoring agents (scheduled, balance monitoring, auto top-up)
+- **LoyaltyProgram**: User loyalty points, tiers, and rewards system
+
+### New Features Added Tonight 🌙
+
+#### Loyalty Program System
+- **Loyalty Points**: Users earn points for every transaction
+- **Tier System**: Bronze, Silver, Gold, Platinum tiers with multipliers
+- **Reward Redemption**: Cashback, bonus points, and discount rewards
+- **Automatic Integration**: Points awarded automatically on transfers and payments
 
 ## Getting Started
 

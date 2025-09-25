@@ -1,3 +1,5 @@
+import LoyaltyProgram from "./LoyaltyProgram.cdc"
+
 access(all) contract JetrPay {
 
     // Events
@@ -115,6 +117,13 @@ access(all) contract JetrPay {
         recipient.addToBalance(amount: amount)
         self.users[from] = sender
         self.users[to] = recipient
+        
+        // Award loyalty points for transfer
+        LoyaltyProgram.awardTransactionPoints(
+            userAddress: from,
+            transactionAmount: amount,
+            transactionType: "transfer"
+        )
         
         emit Transfer(from: from, to: to, amount: amount)
     }

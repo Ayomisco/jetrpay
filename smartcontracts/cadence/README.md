@@ -26,10 +26,20 @@ The JetrPay platform provides comprehensive functionality for:
 - **ForteActions**: Automated payment actions (recurring payments, split payments)
 - **ForteAgents**: Monitoring agents (scheduled, balance monitoring, auto top-up)
 - **LoyaltyProgram**: User loyalty points, tiers, and rewards system
+- **MultiSigWallet**: Multi-signature wallets for shared fund management
 
-### New Features Added Tonight 🌙
+### Latest Features Added 🚀
 
-#### Loyalty Program System
+#### Multi-Signature Wallet System
+- **Shared Wallets**: Multiple owners can control funds together
+- **Configurable Thresholds**: Set minimum approvals required (e.g., 2-of-3, 3-of-5)
+- **Transaction Proposals**: Any owner can propose transactions
+- **Approval Process**: Owners vote to approve/reject transactions
+- **Business & Family Use**: Perfect for company accounts and shared expenses
+- **Security**: Enhanced security through distributed control
+- **Expiration**: Transactions expire to prevent stale approvals
+
+#### Previous: Loyalty Program System
 - **Loyalty Points**: Users earn points for every transaction
 - **Tier System**: Bronze, Silver, Gold, Platinum tiers with multipliers
 - **Reward Redemption**: Cashback, bonus points, and discount rewards

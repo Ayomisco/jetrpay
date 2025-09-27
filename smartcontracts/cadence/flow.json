@@ -10,7 +10,8 @@
     "USDCVault": "./contracts/USDCVault.cdc",
     "ForteActions": "./contracts/ForteActions.cdc",
     "ForteAgents": "./contracts/ForteAgents.cdc",
-    "LoyaltyProgram": "./contracts/LoyaltyProgram.cdc"
+    "LoyaltyProgram": "./contracts/LoyaltyProgram.cdc",
+    "MultiSigWallet": "./contracts/MultiSigWallet.cdc"
   },
   "networks": {
     "emulator": "127.0.0.1:3569",
@@ -34,7 +35,8 @@
         "JetrPay",
         "USDCVault",
         "ForteActions",
-        "ForteAgents"
+        "ForteAgents",
+        "MultiSigWallet"
       ]
     },
     "testnet": {
@@ -43,7 +45,8 @@
         "JetrPay",
         "USDCVault",
         "ForteActions",
-        "ForteAgents"
+        "ForteAgents",
+        "MultiSigWallet"
       ]
     }
   }

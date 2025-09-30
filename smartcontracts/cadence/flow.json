@@ -11,7 +11,8 @@
     "ForteActions": "./contracts/ForteActions.cdc",
     "ForteAgents": "./contracts/ForteAgents.cdc",
     "LoyaltyProgram": "./contracts/LoyaltyProgram.cdc",
-    "MultiSigWallet": "./contracts/MultiSigWallet.cdc"
+    "MultiSigWallet": "./contracts/MultiSigWallet.cdc",
+    "PaymentEscrow": "./contracts/PaymentEscrow.cdc"
   },
   "networks": {
     "emulator": "127.0.0.1:3569",
@@ -36,7 +37,8 @@
         "USDCVault",
         "ForteActions",
         "ForteAgents",
-        "MultiSigWallet"
+        "MultiSigWallet",
+        "PaymentEscrow"
       ]
     },
     "testnet": {
@@ -46,7 +48,8 @@
         "USDCVault",
         "ForteActions",
         "ForteAgents",
-        "MultiSigWallet"
+        "MultiSigWallet",
+        "PaymentEscrow"
       ]
     }
   }

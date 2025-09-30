@@ -103,6 +103,42 @@ Update the account address in `flow.json` before deploying to testnet or mainnet
 flow project deploy --network testnet
 ```
 
+## PaymentEscrow Contract
+
+The `PaymentEscrow` contract provides a secure escrow system for trustless transactions between buyers and sellers. It includes dispute resolution mechanisms and automatic release features.
+
+### Key Features
+
+- **Secure Escrow**: Funds are held in escrow until delivery is confirmed
+- **Dispute Resolution**: Built-in dispute mechanism with admin resolution
+- **Auto-Release**: Automatic fund release after timeout period
+- **Platform Fees**: Configurable fee collection for the platform
+- **Loyalty Integration**: Escrow transactions award loyalty points
+
+### Escrow Workflow
+
+1. **Create Escrow**: Buyer creates an escrow agreement with seller
+2. **Deposit Funds**: Buyer deposits USDC into the escrow
+3. **Delivery**: Seller provides goods/services
+4. **Confirm Delivery**: Buyer confirms delivery (funds released to seller)
+5. **Auto-Release**: If no confirmation, funds auto-release after timeout
+
+### Escrow Transactions
+
+- `create_escrow.cdc` - Create a new escrow agreement
+- `deposit_to_escrow.cdc` - Deposit funds into an escrow
+- `confirm_delivery.cdc` - Confirm delivery and release funds
+- `release_funds.cdc` - Manual release of escrow funds
+- `raise_dispute.cdc` - Raise a dispute for an escrow
+- `resolve_dispute.cdc` - Admin resolution of disputes
+
+### Escrow Scripts
+
+- `get_escrow_details.cdc` - Get details of a specific escrow
+- `get_user_escrows.cdc` - Get all escrows for a user
+- `get_escrow_stats.cdc` - Get platform escrow statistics
+- `get_active_disputes.cdc` - Get all active disputes
+
 ## License
 
 This project is licensed under the MIT License.
